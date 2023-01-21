@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_app_sample/models/employee.dart';
 import 'package:flutter_app_sample/states/app_state.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -9,11 +11,24 @@ class CompanyPage extends StatefulWidget {
 
 class _State extends State<CompanyPage> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return Material(
+        child: Column(children: [
       const Text('Company page'),
-      Observer(builder: (_) => Text(AppState.company.name))
-    ]);
+      Observer(builder: (_) => Text(AppState.company.value.name)),
+      TextField(
+        onChanged: (name) => AppState.employees.value = [
+          ...AppState.employees.value,
+          Employee(name)
+        ],
+        decoration: const InputDecoration(hintText: 'enter a employee name'),
+      ),
+    ]));
   }
 
   // When AppState 'company' varible change it will change the displayed company name

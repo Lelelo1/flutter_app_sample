@@ -1,7 +1,7 @@
-import 'package:flutter_app_sample/models/user.dart';
+import 'package:flutter_app_sample/models/employee.dart';
 
 class Company {
   String name;
-  List<User> users;
+  List<Employee> users;
   Company(this.name, this.users);
 }
