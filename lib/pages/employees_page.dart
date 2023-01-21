@@ -10,13 +10,14 @@ class EmployeesPage extends StatefulWidget {
 class _State extends State<EmployeesPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return Material(
+        child: Column(children: [
       const Text('Employees page'),
       Observer(
           builder: (_) => Column(
               children:
                   AppState.employees.value.map((e) => Text(e.name)).toList()))
-    ]);
+    ]));
   }
 
   // When AppState 'employees' variable change it will change the displayed column of employees
