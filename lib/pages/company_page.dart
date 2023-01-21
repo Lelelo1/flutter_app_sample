@@ -18,10 +18,15 @@ class _State extends State<CompanyPage> {
   Widget build(BuildContext context) {
     return Material(
         child: Column(children: [
+      MaterialButton(
+          child: Text('back'),
+          onPressed: () {
+            Navigator.pop(context);
+          }),
       const Text('Company page'),
       Observer(
           // specific rerendering when AppState.company changes
-          builder: (_) => Text(AppState.company.value.name)),
+          builder: (_) => Text(AppState.company.name)),
       TextField(
         onSubmitted: (name) => AppState.addEmployee(name),
         decoration: const InputDecoration(hintText: 'enter a employee name'),
