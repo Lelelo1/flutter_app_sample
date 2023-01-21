@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_app_sample/models/employee.dart';
 import 'package:flutter_app_sample/states/app_state.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -22,7 +21,7 @@ class _State extends State<CompanyPage> {
       const Text('Company page'),
       Observer(builder: (_) => Text(AppState.company.value.name)),
       TextField(
-        onChanged: (name) => AppState.employees.value = [
+        onSubmitted: (name) => AppState.employees.value = [
           ...AppState.employees.value,
           Employee(name)
         ],
