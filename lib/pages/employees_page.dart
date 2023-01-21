@@ -14,16 +14,10 @@ class _State extends State<EmployeesPage> {
         child: Column(children: [
       const Text('Employees page'),
       Observer(
+          // specific rerendering when AppState.employees changes
           builder: (_) => Column(
               children:
                   AppState.employees.value.map((e) => Text(e.name)).toList()))
     ]));
   }
-
-  // When AppState 'employees' variable change it will change the displayed column of employees
-  // A feature of Mobx is that only the widget wrapped with 'Observer' is rebuilt (specific rendering)'
-
-  // (Potentially I will also show example to make 'Employee's 'name' variable an observable. It means that
-  // one item in a list of widget can be rerendered isoloated from rest of the list)
-
 }

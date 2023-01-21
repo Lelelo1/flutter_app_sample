@@ -19,17 +19,13 @@ class _State extends State<CompanyPage> {
     return Material(
         child: Column(children: [
       const Text('Company page'),
-      Observer(builder: (_) => Text(AppState.company.value.name)),
+      Observer(
+          // specific rerendering when AppState.company changes
+          builder: (_) => Text(AppState.company.value.name)),
       TextField(
-        onSubmitted: (name) => AppState.employees.value = [
-          ...AppState.employees.value,
-          Employee(name)
-        ],
+        onSubmitted: (name) => AppState.addEmployee(name),
         decoration: const InputDecoration(hintText: 'enter a employee name'),
       ),
     ]));
   }
-
-  // When AppState 'company' varible change it will change the displayed company name
-  // A feature of Mobx is that only the text widget wrapped with 'Observer' is rebuilt (specific rendering)'
 }
