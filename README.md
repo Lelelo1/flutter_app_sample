@@ -1,4 +1,4 @@
 
-Minimum app state management with MobX in Flutter
+App state management with Flutter
 
-ongoing
+lacking state management tool
